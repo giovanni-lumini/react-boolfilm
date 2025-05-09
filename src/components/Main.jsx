@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
 
+import Card from './card/Card'
+
 export default function Main() {
 
     //useState
     const [film, setFilm] = useState([])
 
+    const api_server = "http://localhost:8080/api/film";
+
     //function for the api call to the server
-    function fetchData(url = "http://localhost:8080/api/film") {
+    function fetchData(url = api_server) {
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
@@ -31,17 +35,7 @@ export default function Main() {
                     {/* map over the array of objects and display them */}
                     {film.map((film) => (
                         <div key={film.id} className="col text-center d-flex justify-content-center">
-                            <div className="card mt-5" style={{ width: "15rem" }}>
-                                <img src={film.image} className="card-img-top" alt="..." style={{ height: "22rem", objectFit: "cover" }} />
-                                <div className="card-body">
-                                    <h5 className="card-title">{film.title}</h5>
-                                    <p style={{ height: "5rem" }}>{film.description}</p>
-                                    <div className="d-flex justify-content-center gap-3">
-                                        {/* details (show) */}
-                                        <a th:href="@{/film/{id}(id=*{id})}" className="btn btn-sm btn-primary">Details</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <Card data={film}></Card>
                         </div>
                     ))}
                 </div>
