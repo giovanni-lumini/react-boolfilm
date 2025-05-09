@@ -7,7 +7,7 @@ export default function Main() {
     //useState
     const [film, setFilm] = useState([])
 
-    const api_server = "http://localhost:8080/api/film";
+    const api_server = "http://localhost:8080/api/fil";
 
     //function for the api call to the server
     function fetchData(url = api_server) {
@@ -19,6 +19,8 @@ export default function Main() {
 
                 // now film is an array of objects with the data from the server
                 setFilm(data)
+            }).catch(error => {
+                console.log(error.message)
             })
     }
 
@@ -32,7 +34,7 @@ export default function Main() {
             <div className='container'>
                 <div className="row d-flex justify-content-start">
 
-                    {/* map over the array of objects and display them */}
+                    {/* map over the array of objects film and display them */}
                     {film.map((film) => (
                         <div key={film.id} className="col text-center d-flex justify-content-center">
                             <Card data={film}></Card>
