@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router';
+import { Link } from 'react-router';
 
 export default function Card({ data }) {
     return (
@@ -19,10 +19,10 @@ export default function Card({ data }) {
 
                     <nav className="d-flex justify-content-center gap-3">
                         {/* details (show) */}
-                        <NavLink to="/film_details" className="btn btn-primary">Details</NavLink>
+                        <Link to="/film_details" className="btn btn-primary">Details</Link>
                     </nav>
                 </div>
             </div>
         </>
-    );
+    )
 }

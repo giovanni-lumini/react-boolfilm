@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react'
 
-import Card from '../components/card/Card'
-
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-
 export default function Categories() {
 
     //useState
@@ -34,14 +29,12 @@ export default function Categories() {
 
     return (
         <>
-            <Header />
-
             <div className='p-5 shadow-lg'>
                 <h2 className='mb-3'>Explore Film Categories</h2>
                 <p>From pulse-pounding thrillers to heartwarming dramas, explore a diverse range of film genres. Find the perfect category to match your mood and discover new favorites. Let your cinematic journey begin!</p>
             </div>
 
-            <div className='container mt-5'>
+            <div className='container m-auto mt-5'>
                 <div class="row d-flex justify-content-start mb-4">
                     {/* map over the array of objects category and display them */}
                     {categories.map((category) => (
@@ -56,8 +49,6 @@ export default function Categories() {
                     ))}
                 </div>
             </div >
-
-            <Footer />
         </>
-    );
+    )
 };

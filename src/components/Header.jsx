@@ -1,5 +1,5 @@
 import viteLogo from '/vite.svg'
-import { Link, NavLink } from 'react-router';
+import { NavLink } from 'react-router';
 
 export default function Header() {
     return (
@@ -25,5 +25,5 @@ export default function Header() {
                 </nav>
             </header >
         </>
-    );
+    )
 }

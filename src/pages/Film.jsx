@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react'
 
 import Card from '../components/card/Card'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-
 export default function Film() {
 
     //useState
@@ -34,26 +31,25 @@ export default function Film() {
 
     return (
         <>
-            <Header />
-
             <div className='p-5 shadow-lg'>
                 <h2 className='mb-3'>Find Your Favorite Film</h2>
                 <p>Explore a world of cinematic wonders. Discover timeless classics, hidden gems, and the latest blockbusters. Dive deep into captivating stories, unforgettable characters, and breathtaking moments.</p>
             </div>
 
 
-            <div className='container'>
-                <div className="row d-flex justify-content-start">
-                    {/* map over the array of objects film and display them */}
-                    {film.map((film) => (
-                        <div key={film.id} className="col text-center d-flex justify-content-center">
-                            <Card data={film}></Card>
-                        </div>
-                    ))}
+            <div className='container m-auto'>
+                <div className="row d-flex">
+                    <div className="row m-auto d-flex justify-content-start mb-4">
+                        {/* map over the array of objects film and display them */}
+                        {film.map((film) => (
+                            <div key={film.id} className="col-4 text-center d-flex justify-content-center">
+                                <Card data={film}></Card>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
-
-            <Footer />
         </>
-    );
+    )
 };

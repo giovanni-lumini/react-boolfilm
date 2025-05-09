@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Film from './pages/Film'
 import FilmDetails from './pages/FilmDetails'
 import Categories from './pages/Categories'
-
+import DefaultLayout from './components/DefaultLayout'
 
 function App() {
 
@@ -13,10 +13,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/film" element={<Film />} />
-          <Route path="/film_details" element={<FilmDetails />} />
-          <Route path="/categories" element={<Categories />} />
+          <Route element={<DefaultLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/film" element={<Film />} />
+            <Route path="/film_details" element={<FilmDetails />} />
+            <Route path="/categories" element={<Categories />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

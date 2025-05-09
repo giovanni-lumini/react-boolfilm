@@ -5,5 +5,5 @@ export default function Header() {
                 <p className="p-0 m-0">&copy; 2025 BOOLFILM</p>
             </footer>
         </>
-    );
+    )
 }
