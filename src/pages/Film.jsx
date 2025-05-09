@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
 
-import Card from './card/Card'
+import Card from '../components/card/Card'
 
-export default function Main() {
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+export default function Film() {
 
     //useState
     const [film, setFilm] = useState([])
 
-    const api_server = "http://localhost:8080/api/fil";
+    const api_server = "http://localhost:8080/api/film";
 
     //function for the api call to the server
     function fetchData(url = api_server) {
@@ -31,9 +34,16 @@ export default function Main() {
 
     return (
         <>
+            <Header />
+
+            <div className='p-5 shadow-lg'>
+                <h2 className='mb-3'>Find Your Favorite Film</h2>
+                <p>Explore a world of cinematic wonders. Discover timeless classics, hidden gems, and the latest blockbusters. Dive deep into captivating stories, unforgettable characters, and breathtaking moments.</p>
+            </div>
+
+
             <div className='container'>
                 <div className="row d-flex justify-content-start">
-
                     {/* map over the array of objects film and display them */}
                     {film.map((film) => (
                         <div key={film.id} className="col text-center d-flex justify-content-center">
@@ -42,6 +52,8 @@ export default function Main() {
                     ))}
                 </div>
             </div>
+
+            <Footer />
         </>
     );
 };
