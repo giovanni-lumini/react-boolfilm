@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
-import Card from '../components/card/Card'
 
 export default function Film() {
 
@@ -14,9 +14,7 @@ export default function Film() {
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                setFilm(data)
                 console.log(data)
-
                 // now film is an array of objects with the data from the server
                 setFilm(data)
             }).catch(error => {
@@ -36,18 +34,27 @@ export default function Film() {
                 <p>Explore a world of cinematic wonders. Discover timeless classics, hidden gems, and the latest blockbusters. Dive deep into captivating stories, unforgettable characters, and breathtaking moments.</p>
             </div>
 
-
             <div className='container m-auto'>
                 <div className="row d-flex">
                     <div className="row m-auto d-flex justify-content-start mb-4">
                         {/* map over the array of objects film and display them */}
                         {film.map((film) => (
                             <div key={film.id} className="col-4 text-center d-flex justify-content-center">
-                                <Card data={film}></Card>
+                                {/* card */}
+                                <div className="card mt-5 shadow-lg m-0" style={{ width: "20rem" }}>
+                                    <img src={film.image} className="card-img-top" alt="..." style={{ height: "22rem", objectFit: "cover" }} />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{film.title}</h5>
+                                        <p style={{ height: "4rem" }}>{film.description}</p>
+                                        <nav className="d-flex justify-content-center gap-2">
+                                            {/* details (show) */}
+                                            <Link to={`/film/${film.id}`} className="btn btn-primary">Details</Link>
+                                        </nav>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
-
                 </div>
             </div>
         </>

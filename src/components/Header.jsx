@@ -16,9 +16,15 @@ export default function Header() {
                     <div className="container-fluid">
                         <div className="collapse navbar-collapse" id="navbarNavDropdown">
                             <nav className="navbar-nav ">
-                                <NavLink to="/" className="nav-link active text-white">HOME</NavLink>
-                                <NavLink to="/film" className="nav-link active text-white">FILM</NavLink>
-                                <NavLink to="/categories" className="nav-link active text-white">CATEGORIES</NavLink>
+                                <NavLink to="/" className={({ isActive }) =>
+                                    isActive ? "nav-link text-primary" : "nav-link text-white"
+                                }>HOME</NavLink>
+                                <NavLink to="/film" className={({ isActive }) =>
+                                    isActive ? "nav-link text-primary" : "nav-link text-white"
+                                }>FILM</NavLink>
+                                <NavLink to="/categories" className={({ isActive }) =>
+                                    isActive ? "nav-link text-primary" : "nav-link text-white"
+                                }>CATEGORIES</NavLink>
                             </nav>
                         </div>
                     </div>
